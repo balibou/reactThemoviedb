@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import * as actions from '../actions';
 import logo from '../styles/logo.svg';
 import '../styles/App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.actions.getPopularMovies();
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +27,24 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  moviesList: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    moviesList: state.movies.data
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
