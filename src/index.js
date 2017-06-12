@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router } from 'react-router';
 import { Provider } from 'react-redux';
+import 'bulma/css/bulma.css'
 
 import registerServiceWorker from './registerServiceWorker';
 import store, { history } from './store'
