@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 class Movie extends Component {
   render() {
@@ -7,7 +8,9 @@ class Movie extends Component {
 
     return (
       <div className="column is-one-quarter" key={id}>
-        <img src={poster} alt={original_title}/>
+        <Link to={`/movie/${id}`}>
+          <img src={poster} alt={original_title}/>
+        </Link>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIE } from '../constants';
+import { GET_MOVIES } from '../constants';
 
 const initialState = {
   isLoaded: false,
@@ -8,8 +8,6 @@ const initialState = {
 const movies = (state = initialState, action) => {
   switch (action.type) {
     case GET_MOVIES:
-      return Object.assign({}, state, {isLoaded: true, data: action.payload.data.results});
-    case GET_MOVIE:
       return Object.assign({}, state, {isLoaded: true, data: action.payload.data.results});
     default:
       return state;

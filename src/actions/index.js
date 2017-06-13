@@ -14,7 +14,6 @@ export const getMovies = () => (dispatch) => {
 export const getMovie = (movieId) => (dispatch) => {
   axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`)
       .then(data => {
-        console.log(data);
         dispatch({
           type: GET_MOVIE,
           payload: data
