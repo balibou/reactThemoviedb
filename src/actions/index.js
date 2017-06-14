@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_MOVIES, GET_MOVIE } from '../constants';
+import { GET_MOVIES, GET_MOVIE, REMOVE_MOVIE } from '../constants';
 
 export const getMovies = () => (dispatch) => {
   axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`)
@@ -19,4 +19,10 @@ export const getMovie = (movieId) => (dispatch) => {
           payload: data
         });
       })
+};
+
+export const removeMovie = () => (dispatch) => {
+    dispatch({
+      type: REMOVE_MOVIE,
+    });
 };

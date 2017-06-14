@@ -10,6 +10,10 @@ class MovieDetails extends Component {
     this.props.actions.getMovie(this.props.params.id);
   }
 
+  componentWillUnmount() {
+    this.props.actions.removeMovie()
+  }
+
   renderMovieDescription() {
     const { movie } = this.props
     return (
