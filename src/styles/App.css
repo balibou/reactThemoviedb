@@ -18,6 +18,15 @@
   font-size: large;
 }
 
+.canal-plus-title {
+  font-family: canal;
+}
+
+@font-face {
+    font-family: canal;
+    src: url(canal.ttf);
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

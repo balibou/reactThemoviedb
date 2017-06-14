@@ -14,11 +14,17 @@ class MoviesList extends Component {
   renderMoviesList() {
     const { moviesList } = this.props
     return (
-      <div className="columns is-multiline">
-        {moviesList.map((movie) => (
-            <Movie movie={movie} key={movie.id}/>
-        ))}
-      </div>
+        <div className="container">
+          <div className="column">
+            <div className="title is-4 canal-plus-title">MOVIES ON CANAL +</div>
+            <hr />
+          </div>
+          <div className="columns is-multiline">
+            {moviesList.map((movie) => (
+                <Movie movie={movie} key={movie.id}/>
+            ))}
+          </div>
+        </div>
     );
   }
 

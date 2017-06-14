@@ -31,7 +31,7 @@ class MovieDescription extends Component {
                 </div>
               </div>
               <div className="column is-5 is-offset-1">
-                <div className="title is-2">{original_title}</div>
+                <div className="title is-2 canal-plus-title">{original_title}</div>
                 <hr />
                 <br />
                 <p>
