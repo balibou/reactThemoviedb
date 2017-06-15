@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Spinner from 'react-spinkit';
+import Loader from '../components/Loader';
 
 import * as actions from '../actions';
 import MovieDescription from '../components/MovieDescription'
@@ -26,15 +26,7 @@ class MovieDetails extends Component {
 
   render() {
     const { isLoaded } = this.props
-    if (!isLoaded) return (
-      <div className="section">
-        <div className="container">
-          <div className="column is-offset-6">
-            <Spinner name="ball-spin-fade-loader" fadeIn='none'/>
-          </div>
-        </div>
-      </div>
-    )
+    if (!isLoaded) return <Loader />;
     return this.renderMovieDescription()
   }
 }

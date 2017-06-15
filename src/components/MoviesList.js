@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import * as actions from '../actions';
 import Movie from './Movie';
+import Loader from './Loader';
 
 class MoviesList extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class MoviesList extends Component {
 
   render() {
     const { isLoaded } = this.props
-    if (!isLoaded) return <div>spinner</div>
+    if (!isLoaded) return <Loader />
     return this.renderMoviesList()
   }
 }
