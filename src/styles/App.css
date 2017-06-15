@@ -22,6 +22,18 @@
   font-family: canal;
 }
 
+a.nav-item.is-tab.is-active {
+  border-bottom: 3px solid #FFFFFF;
+}
+
+a.nav-item.is-tab.is-active:hover {
+  border-bottom: 3px solid #FFFFFF;
+}
+
+a.nav-item.is-tab:hover {
+  border-bottom: 1px solid #FFFFFF;
+}
+
 @font-face {
     font-family: canal;
     src: url(canal.ttf);

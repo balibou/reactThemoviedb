@@ -20,7 +20,7 @@ const App = ({ children, location }) => (
           <span></span>
         </span>
         <div id='nav-menu' className="nav-right nav-menu">
-          <Link className={`nav-item is-tab ${location.pathname === '/' ? 'is-active' : ''}`} to={'/'}>
+          <Link className={`nav-item is-tab ${location.pathname === '/' ? 'is-active' : ''}`} to={'/'} style={{color: '#FFFFFF'}}>
             Movies
           </Link>
           <a className="nav-item is-tab" href='https://www.mycanal.fr'>
