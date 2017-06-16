@@ -10,6 +10,7 @@ import store, { history } from './store'
 import App from './containers/App';
 import MoviesList from './components/MoviesList';
 import MovieDetails from './containers/MovieDetails'
+import NotFound from './containers/NotFound'
 import './styles/index.css';
 
 const Root = (
@@ -18,6 +19,7 @@ const Root = (
       <Route path="/" component={App}>
         <IndexRoute component={MoviesList}/>
         <Route path="/movie/:id" component={MovieDetails} />
+        <Route path="*" component={NotFound} />
       </Route>
     </Router>
   </Provider>
