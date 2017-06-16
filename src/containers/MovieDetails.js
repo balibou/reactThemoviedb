@@ -27,7 +27,7 @@ class MovieDetails extends Component {
 
   render() {
     const { isLoaded, error } = this.props
-    if (!isLoaded && error) return <NotFound />;
+    if (!isLoaded && error) return <NotFound error='movie'/>;
     if (!isLoaded) return <Loader />;
     return this.renderMovieDescription()
   }
