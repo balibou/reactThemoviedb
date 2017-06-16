@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 
 import * as actions from '../actions';
 import MovieDescription from '../components/MovieDescription'
+import NotFound from './NotFound';
 
 class MovieDetails extends Component {
   componentDidMount() {
@@ -25,7 +26,8 @@ class MovieDetails extends Component {
   }
 
   render() {
-    const { isLoaded } = this.props
+    const { isLoaded, error } = this.props
+    if (!isLoaded && error) return <NotFound />;
     if (!isLoaded) return <Loader />;
     return this.renderMovieDescription()
   }
@@ -34,7 +36,8 @@ class MovieDetails extends Component {
 function mapStateToProps(state) {
   return {
     movie: state.movie.data,
-    isLoaded: state.movie.isLoaded
+    isLoaded: state.movie.isLoaded,
+    error: state.movie.error
   };
 }
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_MOVIES, GET_MOVIE, REMOVE_MOVIE } from '../constants';
+import { GET_MOVIES, GET_MOVIE, REMOVE_MOVIE, GET_MOVIE_FAILED } from '../constants';
 
 export const getMovies = () => (dispatch) => {
   axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`)
@@ -17,6 +17,11 @@ export const getMovie = (movieId) => (dispatch) => {
         dispatch({
           type: GET_MOVIE,
           payload: data
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: GET_MOVIE_FAILED
         });
       })
 };

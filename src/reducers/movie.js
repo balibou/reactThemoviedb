@@ -1,8 +1,9 @@
-import { GET_MOVIE, REMOVE_MOVIE } from '../constants';
+import { GET_MOVIE, REMOVE_MOVIE, GET_MOVIE_FAILED } from '../constants';
 
 const initialState = {
   isLoaded: false,
   data: [],
+  error: false
 };
 
 const movie = (state = initialState, action) => {
@@ -10,7 +11,9 @@ const movie = (state = initialState, action) => {
     case GET_MOVIE:
       return Object.assign({}, state, {isLoaded: true, data: action.payload.data});
     case REMOVE_MOVIE:
-      return Object.assign({}, {isLoaded: false, data: []});
+      return Object.assign({}, {...initialState});
+    case GET_MOVIE_FAILED:
+      return Object.assign({}, state, { error: true });
     default:
       return state;
   }
