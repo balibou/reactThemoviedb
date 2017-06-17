@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Get started
 
-- clone the report
+- clone the repo
 - add a file api.js in src/utils folder:
 
 ```js
