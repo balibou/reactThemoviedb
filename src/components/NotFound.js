@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function NotFound({ error }) {
   return (
@@ -13,5 +14,9 @@ function NotFound({ error }) {
     </section>
   );
 }
+
+NotFound.propTypes = {
+  error: PropTypes.string
+};
 
 export default NotFound;

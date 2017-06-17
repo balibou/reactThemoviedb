@@ -11,7 +11,7 @@ const movie = (state = initialState, action) => {
     case GET_MOVIE:
       return Object.assign({}, state, {isLoaded: true, data: action.payload.data});
     case REMOVE_MOVIE:
-      return Object.assign({}, {...initialState});
+      return Object.assign({}, initialState);
     case GET_MOVIE_FAILED:
       return Object.assign({}, state, { error: true });
     default:

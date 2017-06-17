@@ -8,17 +8,17 @@ import 'font-awesome/css/font-awesome.css'
 import registerServiceWorker from './registerServiceWorker';
 import store, { history } from './store'
 import App from './containers/App';
-import MoviesList from './components/MoviesList';
-import MovieDetails from './containers/MovieDetails'
-import NotFound from './containers/NotFound'
+import MoviesListContainer from './containers/MoviesListContainer';
+import MovieDetailsContainer from './containers/MovieDetailsContainer'
+import NotFound from './components/NotFound'
 import './styles/index.css';
 
 const Root = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={MoviesList}/>
-        <Route path="/movie/:id" component={MovieDetails} />
+        <IndexRoute component={MoviesListContainer}/>
+        <Route path="/movie/:id" component={MovieDetailsContainer} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>

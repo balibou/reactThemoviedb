@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import * as actions from '../actions';
-import Movie from './Movie';
-import Loader from './Loader';
+import MoviesListItem from '../components/MoviesListItem';
+import Loader from '../components/Loader';
 
 class MoviesList extends Component {
   componentDidMount() {
@@ -13,32 +13,31 @@ class MoviesList extends Component {
   }
 
   renderMoviesList() {
-    const { moviesList } = this.props
     return (
-        <div className="container">
-          <div className="column">
-            <div className="title is-4 canal-plus-title">MOVIES ON CANAL +</div>
-            <hr />
-          </div>
-          <div className="columns is-multiline">
-            {moviesList.map((movie) => (
-                <Movie movie={movie} key={movie.id}/>
-            ))}
-          </div>
+      <div className="container">
+        <div className="column">
+          <div className="title is-4 canal-plus-title">MOVIES ON CANAL +</div>
+          <hr />
         </div>
+        <div className="columns is-multiline">
+          {this.props.moviesList.map((movie) =>
+            <MoviesListItem movie={movie} key={movie.id}/>
+          )}
+        </div>
+      </div>
     );
   }
 
   render() {
-    const { isLoaded } = this.props
-    if (!isLoaded) return <Loader />
-    return this.renderMoviesList()
+    if (!this.props.isLoaded) return <Loader />;
+    return this.renderMoviesList();
   }
 }
 
 MoviesList.propTypes = {
   moviesList: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
+  isLoaded: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
@@ -50,11 +49,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch),
+    actions: bindActionCreators(actions, dispatch)
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(MoviesList);
